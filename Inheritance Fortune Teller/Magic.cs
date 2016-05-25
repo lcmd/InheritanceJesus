@@ -20,7 +20,13 @@ namespace Inheritance_Fortune_Teller
         //let's make sure all of them have a name!
         public override string Name { get; set; }
         //let's throw in the level of expertise the fortune teller needs to use this item
-        protected virtual string Expertise { get; set; }
+        public override string Result { get; set; }
+       
+        public override decimal Price { get; set; }
+
+
+
+        public override  Enum Difficulty { get; set; } = DifficultyOptions.easy;
         //How about a  work -- "make it go now" method?
         public virtual void Work()
         {
@@ -36,10 +42,6 @@ namespace Inheritance_Fortune_Teller
         {
             Console.WriteLine("In case you're wondering, this method is {2} percent effective." ,this.Name, this.Result, this.PercentEffective);
         }
-        //trying to have this relate to the Drug class
-        public virtual void OtherServices()
-        {
-            Console.WriteLine("In case you're wondering, we also offer other services ");
-        }
+        
     }
 }

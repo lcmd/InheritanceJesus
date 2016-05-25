@@ -14,23 +14,23 @@ namespace Inheritance_Fortune_Teller
             //this class gets alittle more info from the user.
             //created a switch case that asks user to tell me their zodiac sign
             //if they didn't know i have a help section that tells them
-            Console.WriteLine("Just for you I'll add in a special reading based off of your zodiac sign.");
-            
+            //Console.WriteLine("Just for you I'll add in a special reading based off of your zodiac sign.");
+
 
 
             Console.WriteLine("What is your zodiac sign? If you don't know your zodiac sign enter \"Help\" to show a list of the zodiac signs. ");
-           string scope = Console.ReadLine().ToLower();
+            string scope = Console.ReadLine().ToLower();
 
             if (scope == "help")
             {
-                Console.WriteLine("Zodiac Signs: \nCapicorn is Dec 22-Jan 19, \nAquarious is Jan 20-Feb 18, \nPisces is Feb 19-Mar 20, \nAries is Mar 21-Apr 19, \nTaurus is Apr 20-May 20, \nGemini is May 21-June 20, \nCancer is June 21-July 22, \nLeo is July 23-Aug 22, \nVirgo is Aug 23-Sept 22, \nLibra is Sept 23-Oct 22, \nScorpio is Oct 23-Nov 21, \nSagittarrius is Nov 22-Dec 21");
-                scope = Console.ReadLine();
+                Console.WriteLine("Zodiac Signs: \nCapicorn is Dec 22-Jan 19, \nAquarious is Jan 20-Feb 18, \nPisces is Feb 19-Mar 20, \nAries is Mar 21-Apr 19, \nTaurus is Apr 20-May 20, \nGemini is May 21-June 20, \nCancer is June 21-July 22, \nLeo is July 23-Aug 22, \nVirgo is Aug 23-Sept 22, \nLibra is Sept 23-Oct 22, \nScorpio is Oct 23-Nov 21, \nSagitarius is Nov 22-Dec 21");
+                scope = Console.ReadLine().ToLower();
             }
             switch (scope)
             {
                 case "capicorn":
                     Console.WriteLine("You are resilient and patient. Great news is on the horizon");
-                        break;
+                    break;
                 case "aquarius":
                     Console.WriteLine("You are a trendsetter and humanitarian. Keep pushing forward and great things will come to pass");
                     break;
@@ -61,14 +61,25 @@ namespace Inheritance_Fortune_Teller
                 case "scorpio":
                     Console.WriteLine("You are resilient and powerful. Use your power and influence for good.");
                     break;
-                case "sagittarius":
+                case "sagitarius":
                     Console.WriteLine("You are optimistic and honest. Travel and explore the world.");
                     break;
                 default:
                     Console.WriteLine("Come on now try again..");
                     break;
-               
+
             }
         }
+            public Horoscopes()
+        {
+            this.PercentEffective = 100;
+            this.Price = 65;
+            this.Difficulty = DifficultyOptions.medium;
+        }
+
+        
+            
+        }
+        
     }
-}
+

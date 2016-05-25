@@ -6,26 +6,30 @@ using System.Threading.Tasks;
 
 namespace Inheritance_Fortune_Teller
 {
-    class CrystalBall:Magic 
+    class CrystalBall:Magic,IRandomPhrase
     {
         //straight up field. I really don't need a property. Just using globally so random behaves well.
-        private Random random = new Random();
+        //private Random random = new Random();
+
+        //changed from field to Property b/c of Interface.
+        public Random Rnd { get; set; } = new Random();
 
         //properties
-        protected List<string> Phrases { get; set; } = new List<string>();
+        public List<string> Phrases { get; set; } = new List<string>();
 
         public override string Name { get; set; } = "Crystal Ball";
-
+        public override Enum Difficulty { get; set; } = DifficultyOptions.easy;
+       
 
         public override void Work()
         {
             base.Work();
             //now let's call a method that will get a result for the crystal ball
             this.Result = GetPhrase();
-
+            Console.WriteLine("This work I'm doing for you today is: {0}", this.Difficulty);
         }
 
-        protected void CreatePhrases()
+        public void CreatePhrases()
         {
             Phrases.Add("Night time is a dark place for you.");           
             Phrases.Add("I see shiny objects in your near future");
@@ -40,12 +44,11 @@ namespace Inheritance_Fortune_Teller
             Phrases.Add(phrase);
         }
 
-        private string GetPhrase()
+        public string GetPhrase()
         {
             //local variable
-            int randomNumber = random.Next(Phrases.Count);
+            int randomNumber = Rnd.Next(Phrases.Count);
             return Phrases.ElementAt(randomNumber);
-
         }
 
         //constructor
@@ -55,7 +58,7 @@ namespace Inheritance_Fortune_Teller
             this.Price = 45.00M;
             this.PercentEffective = 85; //was 65
             this.BlackMagic = true;
-            this.Expertise = "beginner";
+            this.Difficulty = DifficultyOptions.medium;
             //I want to call my initializer for phrases.
             CreatePhrases();
         }
